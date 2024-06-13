@@ -9,38 +9,31 @@
 /*   Updated: 2024/06/12 15:30:01 by tuanguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+// #include <stdio.h>
+// #include <string.h>
 
-#include <stdio.h>
-
-char *ft_strcapitalize(char *str)
+char *ft_strlcpy(char *dest, char *src, unsigned int n)
 {
-	int i, j;
-	i = 0;
-	while (str[i] != '\0')
+	int i = 0;
+	while (i < n - 1)
 	{
-
-		if (str[i] >= 97 && str[i] <= 122) // check a-z
-		{
-			if (i == 0 || str[i - 1] == 32) // change capitalize
-			{
-				str[i] = str[i] - 32;
-			}
-		}
+		dest[i] = src[i];
 		i++;
 	}
-	return str;
+	dest[n] = '\0';
+	return dest;
 }
 
 // int main(void)
 // {
-// 	char str[100] = "create a function that transforms every letter to uppercase .";
-// 	ft_strcapitalize(str);
-
+// 	char str_1[20] = "hello world";
+// 	char str_2[9];
+// 	ft_strlcpy(str_2, str_1, 9);
+// 	// strncpy(str_2, str_1, 9);
 // 	int i = 0;
-// 	while (str[i] != '\0')
+// 	while (str_2[i] != '\0')
 // 	{
-// 		printf("%c", str[i]);
+// 		printf("%c", str_2[i]);
 // 		i++;
 // 	}
-// 	return (0);
 // }

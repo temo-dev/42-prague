@@ -11,36 +11,62 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <unistd.h>
 
-char *ft_strcapitalize(char *str)
+int ft_strlen(char *str)
 {
-	int i, j;
+	int i;
+
 	i = 0;
 	while (str[i] != '\0')
 	{
-
-		if (str[i] >= 97 && str[i] <= 122) // check a-z
-		{
-			if (i == 0 || str[i - 1] == 32) // change capitalize
-			{
-				str[i] = str[i] - 32;
-			}
-		}
 		i++;
 	}
-	return str;
+	return (i);
 }
 
-// int main(void)
-// {
-// 	char str[100] = "create a function that transforms every letter to uppercase .";
-// 	ft_strcapitalize(str);
+void ft_check_printable(char *str)
+{
+	int i;
 
-// 	int i = 0;
-// 	while (str[i] != '\0')
-// 	{
-// 		printf("%c", str[i]);
-// 		i++;
-// 	}
-// 	return (0);
-// }
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (
+			str[i] < 32 || str[i] == 126)
+		{
+			printf("number:%016x pointer:%p", str[i], &str[i]);
+		}
+		// else
+		// {
+
+		// }
+		i++;
+	}
+}
+
+void ft_putstr_non_printable(char *str)
+{
+	int i;
+	int number_of_char;
+	int len_of_char;
+
+	len_of_char = ft_strlen(str);
+	i = 0;
+	if (len_of_char == 0)
+	{
+		write(1, &str, 1);
+	}
+	else
+	{
+		ft_check_printable(str);
+	}
+}
+
+int main(int argc, char *argv[])
+{
+	char string[40] = "Coucoutu \n vas bien ?";
+	int i;
+	ft_putstr_non_printable(string);
+	return 0;
+}

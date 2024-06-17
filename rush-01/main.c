@@ -176,14 +176,15 @@ int main(int argc, char **argv)
 	}
 
 	// printf mmatrix
-	// show_tab_modal
-	// for (row = 0; row <= 5; row++)
-	// {
-	// 	for (columns = 0; columns <= 5; columns++)
-	// 	{
-	// 		printf("%c  ", tab_modal[row][columns]);
-	// 	}
-	// 	printf("\n");
-	// }
+	// 	show_tab_modal
+	int row, columns;
+	for (row = 0; row <= 5; row++)
+	{
+		for (columns = 0; columns <= 5; columns++)
+		{
+			printf("%c  ", tab_modal[row][columns]);
+		}
+		printf("\n");
+	}
 	return (0);
 }

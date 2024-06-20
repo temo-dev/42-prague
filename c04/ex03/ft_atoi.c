@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
 int ft_atoi(char *str)
 {
@@ -37,6 +38,8 @@ int ft_atoi(char *str)
 
 int main(void)
 {
-	char string_1[100] = "hello world";
-	char string_2[100] = "abc";
+	char string_1[100] = "12345677";
+	int num;
+	num = ft_atoi(string_1);
+	printf("num:%d\n", num);
 }

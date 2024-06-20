@@ -46,6 +46,6 @@ char *ft_strncat(char *dest, char *src, unsigned int nb)
 
 int main(void)
 {
-	char string_1[100] = "hello world";
+	char string_1[] = "hello world";
 	char string_2[100] = "abc";
 }

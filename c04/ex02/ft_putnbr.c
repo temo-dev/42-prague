@@ -43,6 +43,6 @@ void ft_putnbr(int nb)
 
 int main(void)
 {
-	char string_1[100] = "hello world";
-	char string_2[100] = "abc";
+	unsigned int nb = 1234;
+	ft_putnbr(nb);
 }

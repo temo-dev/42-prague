@@ -10,61 +10,57 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+// #include <string.h>
+// #include <stdio.h>
 
-void ft_putchar(char c)
+unsigned int ft_strlen(char *str)
 {
-	write(1, &c, 1);
-}
-
-int check_base(char *base)
-{
-	int i;
+	unsigned int i;
 
 	i = 0;
-	while (base[i] != '\0')
+	while (str[i] != '\0')
 	{
-		if (base[i] == '+' || base[i] == '-' || base[i] == base[i + 1])
-			return (0);
 		i++;
 	}
-	if (i <= 1)
-		return (0);
-	return (1);
+	return i;
 }
 
-void print_base_nb(int nbr, char *base, int size)
+unsigned int ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	char a;
-	unsigned int n;
-
-	if (nbr < 0)
+	unsigned int i;
+	unsigned int j;
+	unsigned int len_dest;
+	unsigned int len_src;
+	len_dest = ft_strlen(dest);
+	len_src = ft_strlen(src);
+	if (len_src == 0)
 	{
-		write(1, "-", 1);
-		n = nbr * (-1);
+		return (len_dest);
 	}
-	else
-		n = nbr;
-	if (n >= (unsigned int)size)
-		print_base_nb(n / size, base, size);
-	a = base[n % size];
-	write(1, &a, 1);
-}
 
-void ft_putnbr_base(int nbr, char *base)
-{
-	int s;
-
-	s = 0;
-	if (check_base(base) == 1)
+	i = 0;
+	j = 0;
+	while (dest[i] != '\0')
 	{
-		while (base[s] != '\0')
-			s++;
-		print_base_nb(nbr, base, s);
+		i++;
 	}
+	while (src[j] != '\0' && i <= size)
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
+	}
+	dest[i] = '\0';
+	return (len_dest + len_src);
 }
-
-int main(int argc, char **argv)
-{
-	ft_putnbr_base(argc, argv[1]);
-}
+// int main()
+// {
+// 	char dst[20] = "abbb";
+// 	char *src = "";
+// 	unsigned int dstsize = sizeof(dst);
+// 	unsigned int num;
+// 	num = ft_strlcat(dst, src, dstsize);
+// 	printf("num:%d \n", num);
+// 	printf("dest:%s \n", dst);
+// 	printf("src:%s \n", src);
+// }
